@@ -1,0 +1,13 @@
+
+<%  @categories.select{|c| c.persisted?}.each do |category| %>
+  <p> Category Name: <%= category.name %> </p>
+  <p> Number of tasks: <%= category.tasks.count %> </p>
+  <%= link_to 'Inspect', category_path(category), class: "btn" %>
+  <%= button_to 'Delete', delete_category_path(category) %>
+  <br> 
+<% end %>
+
+
+<%= render "categories/form", category: @category || current_user.categories.build %>
+
+<%= link_to "Home", root_path %>

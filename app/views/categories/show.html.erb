@@ -1,0 +1,11 @@
+<%= @category.name %>
+
+<%= render "form", category: @category %>
+
+<%= render @category.tasks.select{|c| c.persisted?} %>
+
+<p> Add a category </p>
+
+<%= render "tasks/form", category: @category, task: @task || @category.tasks.build %>
+
+<%= link_to "Back", categories_path %>

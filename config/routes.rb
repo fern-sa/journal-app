@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   root "pages#index"
   get '/dashboard', to: "pages#index"
 
-  resources :users do
-    resources :categories
+  resources :categories do
+    resources :tasks
   end
+
+  post '/delete_category/:id', to: "categories#destroy", as: :delete_category
+  post '/delete_task/:category_id/:id', to: "tasks#destroy", as: :delete_task
 end

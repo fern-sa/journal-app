@@ -1,0 +1,11 @@
+<%= form_with model: [category, task] do |form| %>
+  <p> Task: <%= form.text_field :name  %> </p>
+  <% task.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+  <% end %>
+  <p> Details <%= form.text_field :body  %> </p>
+  <p> Deadline: <%= form.date_field :deadline  %> </p>
+  <p> Completed?: <%= form.check_box :is_completed %> </p>
+
+  <%= form.submit %>
+<% end %>

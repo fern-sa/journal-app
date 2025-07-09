@@ -1,2 +1,10 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<p> Tasks for today </p>
+<%  @categories.select{|c| c.persisted?}.each do |category| %>
+  <%= render category.tasks.select{|task| task.deadline == Date.today} %>
+<% end %>
+
+<br>
+<br>
+<%= link_to "Manage Categories", categories_path %>
+<br >
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
