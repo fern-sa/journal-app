@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "errors/not_found", to: "errors#not_found"
   devise_for :users
   get "pages/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -18,9 +19,13 @@ Rails.application.routes.draw do
   get '/dashboard', to: "pages#index"
 
   resources :categories do
-    resources :tasks
+    resources :tasks, except: [:index]
   end
 
   post '/delete_category/:id', to: "categories#destroy", as: :delete_category
   post '/delete_task/:category_id/:id', to: "tasks#destroy", as: :delete_task
+
+  match "*unmatched", to: "errors#not_found", via: :all
+
+  
 end

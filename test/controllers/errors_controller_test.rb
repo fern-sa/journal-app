@@ -1,8 +1,7 @@
 require "test_helper"
 
-class PagesControllerTest < ActionDispatch::IntegrationTest
+class ErrorsControllerTest < ActionDispatch::IntegrationTest
   # include Devise::Test::ControllerHelpers 
-  # include Devise::TestHelpers
   include Devise::Test::IntegrationHelpers
 
   setup do
@@ -10,8 +9,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
-  test "should get index" do
-    get pages_index_url
-    assert_response :success
+  test "should get not_found" do
+    get '/any'
+    assert_response :missing
   end
 end

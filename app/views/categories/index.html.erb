@@ -2,11 +2,12 @@
 <%  @categories.select{|c| c.persisted?}.each do |category| %>
   <p> Category Name: <%= category.name %> </p>
   <p> Number of tasks: <%= category.tasks.count %> </p>
-  <%= link_to 'Inspect', category_path(category), class: "btn" %>
+  <%= link_to 'Inspect', category_path(category) %>
   <%= button_to 'Delete', delete_category_path(category) %>
   <br> 
 <% end %>
 
+<p> Add a category </p>
 
 <%= render "categories/form", category: @category || current_user.categories.build %>
 

@@ -1,10 +1,10 @@
-<%= @category.name %>
+<h4> Category Name: <%= @category.name %> </h4>
 
 <%= render "form", category: @category %>
 
 <%= render @category.tasks.select{|c| c.persisted?} %>
 
-<p> Add a category </p>
+<p> Add a task </p>
 
 <%= render "tasks/form", category: @category, task: @task || @category.tasks.build %>
 
