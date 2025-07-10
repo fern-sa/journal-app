@@ -3,7 +3,7 @@
 <p> Name: <%= task.name %> </p>
 <p> Details: <%= task.body %> </p>
 <p> Deadline: <%= task.deadline %> </p>
-<p> Completed?: <%= task.is_completed %> </p>
+<p> Completed? : <%= task.is_completed %> </p>
 
 <%= link_to "Edit", edit_category_task_path(task.category_id, task) %>
 <%= link_to "Inspect", category_task_path(task.category_id, task) %>

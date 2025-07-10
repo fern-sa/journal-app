@@ -1,5 +1,5 @@
 
-<p> Tasks for today </p>
+<h4> Tasks for today / Urgent </h4>
 <%  @categories.select{|c| c.persisted?}.each do |category| %>
   <%= render category.tasks.select{|task| task.deadline == Date.today} %>
 <% end %>

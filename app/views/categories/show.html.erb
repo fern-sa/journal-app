@@ -2,9 +2,11 @@
 
 <%= render "form", category: @category %>
 
+<h4> Tasks: </h4>
+
 <%= render @category.tasks.select{|c| c.persisted?} %>
 
-<p> Add a task </p>
+<h4> Add a task </h4>
 
 <%= render "tasks/form", category: @category, task: @task || @category.tasks.build %>
 
